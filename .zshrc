@@ -5,7 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -68,9 +67,6 @@ alias vi='nvim'
 # flutter
 export PATH="$PATH:/Users/cynte/Workspace/flutter/flutter/bin"
 
-# rbenv
-eval "$(rbenv init - zsh)"
-
 export CHROME_EXECUTABLE="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
@@ -78,7 +74,6 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # zsh
 eval "$(fzf --zsh)"
 
-source ~/Workspace/fzf-git.sh/fzf-git.sh
 
 export FZF_CRTL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tre --color=always {} | head -200'"

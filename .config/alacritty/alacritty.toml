@@ -5,10 +5,9 @@ normal = { family = "FiraCode Nerd Font" }
 [window]
 decorations = "none"
 opacity = 0.9
-# blur = true
-padding = { x = 4, y = 0}
+blur = false 
+padding = { x = 0, y = 0 }
 startup_mode = "Maximized"
-
 
 [mouse]
 hide_when_typing = true
@@ -16,82 +15,39 @@ hide_when_typing = true
 [env]
 TERM = "xterm-256color"
 
-# Nightfox Alacritty Colors
-## name: carbonfox
-## upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/carbonfox/alacritty.toml
+# cyberdream theme for alacritty
+[[colors.indexed_colors]]
+color = "0xffbd5e"
+index = 16
 
-[colors.primary]
-background = "#161616"
-foreground = "#f2f4f8"
-dim_foreground = "#b6b8bb"
-bright_foreground = "#f9fbff"
-
-[colors.cursor]
-text = "#f2f4f8"
-cursor = "#b6b8bb"
-
-[colors.vi_mode_cursor]
-text = "#f2f4f8"
-cursor = "#33b1ff"
-
-[colors.search.matches]
-foreground = "#f2f4f8"
-background = "#525253"
-
-[colors.search.focused_match]
-foreground = "#f2f4f8"
-background = "#3ddbd9"
-
-[colors.footer_bar]
-foreground = "#f2f4f8"
-background = "#353535"
-
-[colors.hints.start]
-foreground = "#f2f4f8"
-background = "#3ddbd9"
-
-[colors.hints.end]
-foreground = "#f2f4f8"
-background = "#353535"
-
-[colors.selection]
-text = "#f2f4f8"
-background = "#2a2a2a"
-
-[colors.normal]
-black = "#282828"
-red = "#ee5396"
-green = "#25be6a"
-yellow = "#08bdba"
-blue = "#78a9ff"
-magenta = "#be95ff"
-cyan = "#33b1ff"
-white = "#dfdfe0"
+[[colors.indexed_colors]]
+color = "0xff6e5e"
+index = 17
 
 [colors.bright]
-black = "#484848"
-red = "#f16da6"
-green = "#46c880"
-yellow = "#2dc7c4"
-blue = "#8cb6ff"
-magenta = "#c8a5ff"
-cyan = "#52bdff"
-white = "#e4e4e5"
+black = "0x3c4048"
+blue = "0x5ea1ff"
+cyan = "0x5ef1ff"
+green = "0x5eff6c"
+magenta = "0xbd5eff"
+red = "0xff6e5e"
+white = "0xffffff"
+yellow = "0xf1ff5e"
 
-[colors.dim]
-black = "#222222"
-red = "#ca4780"
-green = "#1fa25a"
-yellow = "#07a19e"
-blue = "#6690d9"
-magenta = "#a27fd9"
-cyan = "#2b96d9"
-white = "#bebebe"
+[colors.normal]
+black = "0x16181a"
+blue = "0x5ea1ff"
+cyan = "0x5ef1ff"
+green = "0x5eff6c"
+magenta = "0xbd5eff"
+red = "0xff6e5e"
+white = "0xffffff"
+yellow = "0xf1ff5e"
 
-[[colors.indexed_colors]]
-index = 16
-color = "#3ddbd9"
+[colors.primary]
+background = "0x16181a"
+foreground = "0xffffff"
 
-[[colors.indexed_colors]]
-index = 17
-color = "#ff7eb6"
+[colors.selection]
+background = "0x3c4048"
+foreground = "0xffffff"

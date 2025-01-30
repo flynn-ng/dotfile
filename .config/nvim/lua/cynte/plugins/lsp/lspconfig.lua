@@ -6,6 +6,9 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
 	},
+	opts = {
+		inlay_hints = { enabled = true },
+	},
 	config = function()
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
@@ -88,8 +91,8 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			["tsserver"] = function()
-				lspconfig["tsserver"].setup({
+			["ts_ls"] = function()
+				lspconfig["ts_ls"].setup({
 					capabilities = capabilities,
 					init_options = {
 						preferences = {

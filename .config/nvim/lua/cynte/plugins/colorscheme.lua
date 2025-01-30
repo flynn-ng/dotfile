@@ -1,28 +1,14 @@
 return {
-	"EdenEast/nightfox.nvim",
+	"scottmckendry/cyberdream.nvim",
+	lazy = false,
 	priority = 1000,
 	config = function()
-		require("nightfox").setup({
-			options = {
-				transparent = true,
-			},
+		require("cyberdream").setup({
+			transparent = true,
+			hide_fillchars = true,
+			terminal_colors = true,
+			borderless_telescope = false,
 		})
-		vim.cmd("colorscheme Carbonfox")
+		vim.cmd("colorscheme cyberdream")
 	end,
 }
--- return {
--- 	"0xstepit/flow.nvim",
--- 	lazy = false,
--- 	priority = 1000,
--- 	opts = {},
--- 	config = function()
--- 		require("flow").setup_options({
--- 			transparent = false,
--- 			fluo = "orange",
--- 			mode = "normal",
--- 			aggressive_spell = false,
--- 		})
---
--- 		vim.cmd("colorscheme flow")
--- 	end,
--- }
