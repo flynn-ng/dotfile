@@ -34,6 +34,9 @@ return {
 				"gitignore",
 				"vimdoc",
 				"sql",
+				"go",
+				"rust",
+				"tsx",
 			},
 			incremental_selection = {
 				enable = true,

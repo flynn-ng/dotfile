@@ -7,7 +7,7 @@ return {
 			transparent = true,
 			hide_fillchars = true,
 			terminal_colors = true,
-			borderless_telescope = false,
+			borderless_picker = false,
 		})
 		vim.cmd("colorscheme cyberdream")
 	end,
