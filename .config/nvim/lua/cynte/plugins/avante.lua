@@ -9,13 +9,17 @@ return {
 		cursor_applying_provider = "gemini",
 		gemini = {
 			model = "gemini-2.0-flash",
+			timeout = 30000,
 			temperature = 0,
 			max_tokens = 4096,
-			-- reasoning_effort = "high",
 		},
 		behaviour = {
 			auto_suggestions = false,
-			-- enable_cursor_planning_mode = true,
+			auto_set_highlight_group = true,
+			enable_cursor_planning_mode = true,
+		},
+		web_search_engine = {
+			provider = "tavily", -- tavily, serpapi, searchapi, google or kagi
 		},
 		mappings = {
 			suggestion = {
