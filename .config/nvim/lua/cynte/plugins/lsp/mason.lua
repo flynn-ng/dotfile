@@ -31,7 +31,13 @@ return {
 				"lua_ls",
 				"golangci_lint_ls",
 				"gopls",
+				"nil_ls",
+				"rust_analyzer",
+				"terraformls",
+				"tflint",
+				"biome",
 			},
+			automatic_installation = true,
 		})
 
 		mason_tool_installer.setup({
@@ -39,7 +45,10 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d",
+				"nixpkgs-fmt",
+				"js-debug-adapter",
 			},
+			automatic_installation = true,
 		})
 	end,
 }

@@ -107,21 +107,6 @@ return {
 			desc = "Lazygit Log (cwd)",
 		},
 		{
-			"<leader>hb",
-			function()
-				Snacks.git.blame_line()
-			end,
-			desc = "Git Blame line",
-		},
-		{
-			"<leader>hB",
-			function()
-				Snacks.gitbrowse()
-			end,
-			desc = "Git Browse",
-			mode = { "n", "v" },
-		},
-		{
 			"<leader>nn",
 			function()
 				Snacks.notifier.show_history()

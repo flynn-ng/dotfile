@@ -15,7 +15,7 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				nix = { "nixfmt" },
+				nix = { "nixpkgs_fmt", "nixfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

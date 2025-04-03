@@ -10,7 +10,7 @@ return {
 		vim.opt.termguicolors = true
 
 		local HEIGHT_RATIO = 0.75
-		local WIDTH_RATIO = 0.6
+		local WIDTH_RATIO = 0.35
 
 		nvimtree.setup({
 			filters = {
@@ -20,11 +20,15 @@ return {
 			disable_netrw = true,
 			hijack_cursor = true,
 			sync_root_with_cwd = true,
+			select_prompts = true,
 			update_focused_file = {
 				enable = true,
 				update_root = false,
 			},
 			view = {
+				centralize_selection = true,
+				-- relativenumber = true,
+				preserve_window_proportions = true,
 				float = {
 					enable = true,
 					quit_on_focus_loss = true,
@@ -56,6 +60,9 @@ return {
 			renderer = {
 				root_folder_label = false,
 				highlight_git = "all",
+				highlight_opened_files = "icon",
+				highlight_modified = "all",
+				highlight_diagnostics = "icon",
 				indent_markers = {
 					enable = true,
 				},
@@ -85,6 +92,9 @@ return {
 			},
 			git = {
 				ignore = false,
+			},
+			diagnostics = {
+				enable = true,
 			},
 		})
 
