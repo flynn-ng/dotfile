@@ -50,6 +50,11 @@ return {
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),
+			cmp.setup.filetype("sql", {
+				sources = cmp.config.sources({
+					{ name = "vim-dadbod-completion" },
+				}),
+			}),
 		})
 	end,
 }
