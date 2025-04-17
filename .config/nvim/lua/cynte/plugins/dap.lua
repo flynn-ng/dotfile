@@ -132,6 +132,21 @@ return {
 				end,
 				desc = "Widgets",
 			},
+			{
+				"<leader>du",
+				function()
+					require("dapui").toggle({})
+				end,
+				desc = "Dap UI",
+			},
+			{
+				"<leader>de",
+				function()
+					require("dap").eval()
+				end,
+				desc = "Eval",
+				mode = { "n", "v" },
+			},
 		},
 		config = function()
 			local dap = require("dap")
@@ -139,6 +154,7 @@ return {
 
 			require("mason").setup()
 			require("mason-nvim-dap").setup({
+				automatic_installation = true,
 				ensure_installed = { "node-debug2-adapter" },
 			})
 
@@ -161,6 +177,7 @@ return {
 					protocol = "inspector",
 					console = "integratedTerminal",
 					outFiles = { "${workspaceFolder}/dist/**/*.js" },
+					skipFiles = { "<node_internals>/**", "node_modules/**" },
 				},
 			}
 

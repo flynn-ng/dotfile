@@ -47,6 +47,7 @@ return {
 				"eslint_d",
 				"nixpkgs-fmt",
 				"js-debug-adapter",
+				"node-debug2-adapter",
 			},
 			automatic_installation = true,
 		})
