@@ -62,7 +62,6 @@ return {
 				highlight_git = "all",
 				highlight_opened_files = "icon",
 				highlight_modified = "all",
-				highlight_diagnostics = "icon",
 				indent_markers = {
 					enable = true,
 				},
@@ -100,6 +99,7 @@ return {
 
 		vim.cmd("highlight NvimTreeNormal guibg=none")
 		vim.cmd("highlight NvimTreeNormalFloat guibg=none")
+		vim.cmd("highlight! link NvimTreeNormalFloatBorder TelescopeBorder")
 
 		local keymap = vim.keymap
 
