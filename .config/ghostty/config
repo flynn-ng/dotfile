@@ -10,6 +10,3 @@ term = "xterm-256color"
 theme = cyberdream
 window-decoration = none
 maximize = true
-window-save-state = always
-window-width = 10000
-window-height = 10000

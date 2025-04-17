@@ -10,10 +10,10 @@ keymap.set("n", "<leader>se", "<c-w>=", { desc = "Make splits equal size" })
 keymap.set("n", "<leader>sw", "<cmd>close<CR>", { desc = "Close current split" })
 
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+keymap.set("n", "<leader>tw", "<cmd>tabclose<CR>", { desc = "Close current tab" })
+keymap.set("n", "<leader>tl", "<cmd>tabn<CR>", { desc = "Go to next tab" })
+keymap.set("n", "<leader>th", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
+keymap.set("n", "<leader>td", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
 keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
 

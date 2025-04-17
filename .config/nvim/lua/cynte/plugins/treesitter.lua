@@ -41,6 +41,7 @@ return {
 				"go",
 				"rust",
 				"tsx",
+				"regex",
 			},
 			incremental_selection = {
 				enable = true,
