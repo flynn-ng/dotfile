@@ -5,7 +5,11 @@ return {
 	opts = {
 		options = {
 			mode = "tabs",
-			-- separator_style = "slope",
+			separator_style = { "  ", "  " },
+			indicator = {
+				style = "icon",
+				icon = " ",
+			},
 			hover = {
 				enabled = true,
 				delay = 200,
