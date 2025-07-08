@@ -10,6 +10,13 @@ return {
 		"DBUIAddConnection",
 		"DBUIFindBuffer",
 	},
+	keys = {
+		{
+			"<leader>qt",
+			"<cmd>DBUIToggle<cr>",
+			desc = "Toggle DB UI",
+		},
+	},
 	init = function()
 		-- Your DBUI configuration
 		vim.g.db_ui_use_nerd_fonts = 1

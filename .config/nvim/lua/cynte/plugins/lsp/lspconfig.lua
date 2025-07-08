@@ -93,6 +93,45 @@ return {
 			function(server_name)
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
+					on_attach = function(client, bufnr)
+						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+					end,
+				})
+			end,
+			["pyright"] = function()
+				lspconfig.pyright.setup({
+					capabilities = capabilities,
+					on_attach = on_attach,
+					autostart = true,
+					-- Optional: specify the python environment if not using the default one in PATH
+					-- or if you have a .venv/ on your project root.
+					-- Pyright is usually good at finding the venv automatically.
+					settings = {
+						python = {
+							pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
+						},
+						pyright = {
+							-- Recommended Pyright settings:
+							-- Report specific types of errors/warnings
+							reportMissingImports = true,
+							reportMissingModuleSource = true,
+							reportUndefinedVariable = true,
+							reportGeneralTypeIssues = true,
+							-- You can adjust diagnostic severity for certain rules
+							-- reportCallIncompatible = "warning",
+							-- reportArgumentTypeMismatch = "warning",
+
+							-- Type checking mode (off, basic, strict)
+							typeCheckingMode = "basic", -- "strict" is highly recommended for robust projects
+
+							-- Provide paths to your source code
+							autoSearchPaths = true,
+							extraPaths = {},
+
+							-- Log level for pyright itself (for debugging if needed)
+							logLevel = "info", -- "debug" for more verbose logs
+						},
+					},
 				})
 			end,
 			["rust_analyzer"] = function()

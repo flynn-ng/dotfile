@@ -42,6 +42,8 @@ return {
 				"rust",
 				"tsx",
 				"regex",
+				"python",
+				"nix",
 			},
 			incremental_selection = {
 				enable = true,

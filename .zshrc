@@ -58,10 +58,6 @@ alias v='nvim'
 alias vim='nvim'
 alias vi='nvim'
 
-# flutter
-export PATH="$PATH:/Users/cynte/Workspace/flutter/flutter/bin"
-
-export CHROME_EXECUTABLE="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
@@ -85,7 +81,7 @@ _fzf_comprun() {
 
 export BAT_THEME=DarkNeon
 
-alias ls="eza --color=always --git --icons=always"
+alias ls="eza --color=always --git --icons=always -1"
 
 
 eval "$(zoxide init --cmd cd zsh)"

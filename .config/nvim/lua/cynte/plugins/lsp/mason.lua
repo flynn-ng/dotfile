@@ -36,18 +36,23 @@ return {
 				"terraformls",
 				"tflint",
 				"biome",
+				"pyright",
 			},
 			automatic_installation = true,
 		})
 
 		mason_tool_installer.setup({
 			ensure_installed = {
+				"golangci-lint",
 				"prettier",
 				"stylua",
 				"eslint_d",
 				"nixpkgs-fmt",
 				"js-debug-adapter",
 				"node-debug2-adapter",
+				"isort",
+				"black",
+				"ruff",
 			},
 			automatic_installation = true,
 		})
