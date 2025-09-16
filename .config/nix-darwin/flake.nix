@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = { self, nix-darwin, nixpkgs, nix-homebrew, rust-overlay }:
+  outputs = { self, nix-darwin, nix-homebrew, rust-overlay }:
     let
 
       configuration = { pkgs, config, ... }: {
@@ -44,7 +44,6 @@
           fd
           bat
           tlrc
-          toilet
 
           deno
           bun
@@ -59,23 +58,24 @@
           poppler
           go
           (rust-bin.stable.latest.default)
-          rust-analyzer
           statix
           pkg-config
           openssl
           ngrok
           luajit
           imagemagick
-          neofetch
 
           python312
+          python312Packages.pip
+          uv
           ruby
 
           unrar
           nginx
           rar
           tesseract
-          gemini-cli
+          gh
+
 
         ];
 
@@ -89,25 +89,25 @@
             "mkcert"
             "jupyterlab"
             "pngpaste"
+            "doctl"
           ];
           casks = [
             "postman"
-            # "teamviewer"
             "podman-desktop"
             "the-unarchiver"
             "arc"
+            "thebrowsercompany-dia"
             "keycastr"
             "dbeaver-community"
             "steam"
-            "epic-games"
             "stremio"
             "ghostty"
             "raycast"
             "appcleaner"
-            "microsoft-teams"
             "streamlabs"
             "discord"
             "sf-symbols"
+            "messenger"
           ];
           taps = [
             {
@@ -131,7 +131,6 @@
           dock.appswitcher-all-displays = true;
           dock.persistent-apps = [
             "/Applications/Ghostty.app"
-            # "${pkgs.dbeaver-bin}/Applications/dbeaver.app"
             "/Applications/Arc.app/"
             "/System/Applications/Messages.app"
           ];
