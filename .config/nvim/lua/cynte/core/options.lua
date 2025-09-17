@@ -1,7 +1,5 @@
 vim.cmd("let g:netrw_liststyle = 3")
-vim.cmd("let g:loaded_node_provider = 0")
 vim.cmd("let g:loaded_perl_provider = 0")
-vim.cmd("let g:loaded_python3_provider = 0")
 vim.cmd("let g:loaded_ruby_provider = 0")
 -- Set transparency for floating windows
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
@@ -46,3 +44,5 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.laststatus = 3
+
+opt.swapfile = false

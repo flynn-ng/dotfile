@@ -4,13 +4,37 @@ return {
 	lazy = false,
 	version = false,
 	opts = {
-		provider = "gemini",
+		system_prompt = function()
+			local hub = require("mcphub").get_hub_instance()
+			return hub and hub:get_active_servers_prompt() or ""
+		end,
+		-- Using function prevents requiring mcphub before it's loaded
+		custom_tools = function()
+			return {
+				require("mcphub.extensions.avante").mcp_tool(),
+			}
+		end,
+		context_window = 2048,
+		instructions_file = "avante.md",
+		-- provider = "gemini",
+		provider = "groq",
 		providers = {
+			groq = {
+				__inherited_from = "openai",
+				api_key_name = "GROQ_API_KEY",
+				endpoint = "https://api.groq.com/openai/v1",
+				model = "llama-3.1-8b-instant",
+				max_tokens = 512,
+				extra_request_body = {
+					max_completion_tokens = 512,
+				},
+			},
 			gemini = {
-				model = "gemini-2.5-flash",
+				model = "gemini-2.5-flash-lite",
 				timeout = 30000,
-				context_window = 1048576,
-				use_ReAct_prompt = true,
+				max_tokens = 1048576,
+				return_text = true,
+				use_ReAct_prompt = false,
 				extra_request_body = {
 					generationConfig = {
 						temperature = 0,
@@ -30,37 +54,30 @@ return {
 	},
 	build = "make",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
-		"stevearc/dressing.nvim",
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
-		--- The below dependencies are optional,
-		"echasnovski/mini.pick", -- for file_selector provider mini.pick
-		"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-		"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-		"ibhagwan/fzf-lua", -- for file_selector provider fzf
-		"folke/snacks.nvim", -- for input provider snacks
-		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-		-- "zbirenbaum/copilot.lua", -- for providers='copilot'
+		"echasnovski/mini.pick",
+		"nvim-telescope/telescope.nvim",
+		"hrsh7th/nvim-cmp",
+		"ibhagwan/fzf-lua",
+		"stevearc/dressing.nvim",
+		"folke/snacks.nvim",
+		"nvim-tree/nvim-web-devicons",
 		{
-			-- support for image pasting
 			"HakonHarnes/img-clip.nvim",
 			event = "VeryLazy",
 			opts = {
-				-- recommended settings
 				default = {
 					embed_image_as_base64 = false,
 					prompt_for_file_name = false,
 					drag_and_drop = {
 						insert_mode = true,
 					},
-					-- required for Windows users
 					use_absolute_path = true,
 				},
 			},
 		},
 		{
-			-- Make sure to set this up properly if you have lazy=true
 			"MeanderingProgrammer/render-markdown.nvim",
 			opts = {
 				file_types = { "markdown", "Avante" },

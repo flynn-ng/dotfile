@@ -27,7 +27,9 @@ return {
 			},
 			view = {
 				centralize_selection = true,
+				cursorline = false,
 				-- relativenumber = true,
+				-- signcolumn = "no",
 				preserve_window_proportions = true,
 				float = {
 					enable = true,
