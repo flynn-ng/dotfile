@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = { self, nix-darwin, nix-homebrew, rust-overlay }:
+  outputs = { nixpkgs, self, nix-darwin, nix-homebrew, rust-overlay }:
     let
 
       configuration = { pkgs, config, ... }: {
