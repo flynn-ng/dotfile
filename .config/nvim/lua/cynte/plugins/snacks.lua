@@ -5,6 +5,26 @@ return {
 	opts = {
 		bigfile = {
 			enabled = true,
+			notify = true,
+			size = 1.5 * 1024 * 1024,
+			line_length = 1000,
+			-- Enable or disable features when big file detected
+			---@param ctx {buf: number, ft:string}
+			setup = function(ctx)
+				if vim.fn.exists(":NoMatchParen") ~= 0 then
+					vim.cmd([[NoMatchParen]])
+				end
+				Snacks.util.wo(0, { foldmethod = "manual", statuscolumn = "", conceallevel = 0 })
+				vim.b.minianimate_disable = true
+				vim.schedule(function()
+					if vim.api.nvim_buf_is_valid(ctx.buf) then
+						vim.bo[ctx.buf].syntax = ctx.ft
+					end
+				end)
+			end,
+		},
+		bufdelete = {
+			enabled = true,
 		},
 		dashboard = {
 			enabled = true,
@@ -24,13 +44,6 @@ return {
     \/__/           \/__/     \/__/           \/__/       \/__/    
           ]],
 				},
-				-- {
-				-- 	section = "terminal",
-				-- 	cmd = "toilet -F gay Cynte; sleep .1",
-				-- 	hl = "header",
-				-- 	padding = 1,
-				-- 	indent = 12,
-				-- },
 				{
 					section = "startup",
 				},
@@ -60,15 +73,14 @@ return {
 		indent = {
 			indent = {
 				char = "┊",
+				only_current = true,
+				only_scope = true,
 			},
 		},
 		input = {
 			enabled = true,
 		},
 		lazygit = {
-			enabled = true,
-		},
-		layout = {
 			enabled = true,
 		},
 		notifier = {
@@ -103,6 +115,28 @@ return {
 		},
 	},
 	keys = {
+		-- bufdelete
+		{
+			"<leader>ba",
+			function()
+				Snacks.bufdelete.all()
+			end,
+			desc = "Delete all buffer",
+		},
+		{
+			"<leader>bn",
+			function()
+				Snacks.bufdelete.delete()
+			end,
+			desc = "Delete current buffer",
+		},
+		{
+			"<leader>bc",
+			function()
+				Snacks.bufdelete.other()
+			end,
+			desc = "Delete all but current buffer",
+		},
 		{
 			"<leader>lg",
 			function()
