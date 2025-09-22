@@ -49,7 +49,6 @@ return {
 				"eslint_d",
 				"nixpkgs-fmt",
 				"js-debug-adapter",
-				"node-debug2-adapter",
 				"isort",
 				"black",
 				"ruff",
