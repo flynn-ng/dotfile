@@ -40,9 +40,6 @@ return {
 			severity_sort = true,
 		})
 
-		-- Import lspconfig plugin
-		local lspconfig = require("lspconfig")
-
 		-- Import mason_lspconfig plugin
 		local mason_lspconfig = require("mason-lspconfig")
 
@@ -100,152 +97,166 @@ return {
 		-- Enable autocompletion
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
+		vim.lsp.config["lua_ls"] = {
+			capabilities = capabilities,
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+					completion = {
+						callSnippet = "Replace",
+					},
+				},
+			},
+		}
+
 		-- Mason-LSPconfig handlers
-		mason_lspconfig.setup_handlers({
-			-- Default handler
-			function(server_name)
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-					end,
-				})
-			end,
-			["pyright"] = function()
-				lspconfig.pyright.setup({
-					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-					end,
-					autostart = true,
-					settings = {
-						python = {
-							pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
-						},
-						pyright = {
-							reportMissingImports = true,
-							reportMissingModuleSource = true,
-							reportUndefinedVariable = true,
-							reportGeneralTypeIssues = true,
-							typeCheckingMode = "basic",
-							autoSearchPaths = true,
-							extraPaths = {},
-							logLevel = "info",
-						},
-					},
-				})
-			end,
-			["rust_analyzer"] = function()
-				lspconfig["rust_analyzer"].setup({
-					on_attach = function(client, bufnr)
-						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-					end,
-					settings = {
-						["rust-analyzer"] = {
-							imports = {
-								granularity = {
-									group = "module",
-								},
-								prefix = "self",
-							},
-							cargo = {
-								buildScripts = {
-									enable = true,
-								},
-							},
-							procMacro = {
-								enable = true,
-							},
-						},
-					},
-				})
-			end,
-			["ts_ls"] = function()
-				lspconfig["ts_ls"].setup({
-					capabilities = capabilities,
-					init_options = {
-						preferences = {
-							disableSuggestions = true,
-						},
-					},
-					on_attach = function(client, bufnr)
-						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-					end,
-					settings = {
-						javascript = {
-							inlayHints = {
-								includeInlayEnumMemberValueHints = true,
-								includeInlayFunctionLikeReturnTypeHints = true,
-								includeInlayFunctionParameterTypeHints = true,
-								includeInlayParameterNameHints = "all",
-								includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-								includeInlayPropertyDeclarationTypeHints = true,
-								includeInlayVariableTypeHints = true,
-							},
-						},
-						typescript = {
-							inlayHints = {
-								includeInlayEnumMemberValueHints = true,
-								includeInlayFunctionLikeReturnTypeHints = true,
-								includeInlayFunctionParameterTypeHints = true,
-								includeInlayParameterNameHints = "all",
-								includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-								includeInlayPropertyDeclarationTypeHints = true,
-								includeInlayVariableTypeHints = true,
-							},
-						},
-					},
-				})
-			end,
-			["svelte"] = function()
-				lspconfig["svelte"].setup({
-					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						vim.api.nvim_create_autocmd("BufWritePost", {
-							pattern = { "*.js", "*.ts" },
-							callback = function(ctx)
-								client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-							end,
-						})
-					end,
-				})
-			end,
-			["graphql"] = function()
-				lspconfig["graphql"].setup({
-					capabilities = capabilities,
-					filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-				})
-			end,
-			["emmet_ls"] = function()
-				lspconfig["emmet_ls"].setup({
-					capabilities = capabilities,
-					filetypes = {
-						"html",
-						"typescriptreact",
-						"javascriptreact",
-						"css",
-						"sass",
-						"scss",
-						"less",
-						"svelte",
-					},
-				})
-			end,
-			["lua_ls"] = function()
-				lspconfig["lua_ls"].setup({
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							diagnostics = {
-								globals = { "vim" },
-							},
-							completion = {
-								callSnippet = "Replace",
-							},
-						},
-					},
-				})
-			end,
-		})
+		-- mason_lspconfig.setup_handlers({
+		-- 	-- Default handler
+		-- 	function(server_name)
+		-- 		lspconfig[server_name].setup({
+		-- 			capabilities = capabilities,
+		-- 			on_attach = function(client, bufnr)
+		-- 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+		-- 			end,
+		-- 		})
+		-- 	end,
+		-- 	["pyright"] = function()
+		-- 		lspconfig.pyright.setup({
+		-- 			capabilities = capabilities,
+		-- 			on_attach = function(client, bufnr)
+		-- 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+		-- 			end,
+		-- 			autostart = true,
+		-- 			settings = {
+		-- 				python = {
+		-- 					pythonPath = vim.fn.getcwd() .. "/.venv/bin/python",
+		-- 				},
+		-- 				pyright = {
+		-- 					reportMissingImports = true,
+		-- 					reportMissingModuleSource = true,
+		-- 					reportUndefinedVariable = true,
+		-- 					reportGeneralTypeIssues = true,
+		-- 					typeCheckingMode = "basic",
+		-- 					autoSearchPaths = true,
+		-- 					extraPaths = {},
+		-- 					logLevel = "info",
+		-- 				},
+		-- 			},
+		-- 		})
+		-- 	end,
+		-- 	["rust_analyzer"] = function()
+		-- 		lspconfig["rust_analyzer"].setup({
+		-- 			on_attach = function(client, bufnr)
+		-- 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+		-- 			end,
+		-- 			settings = {
+		-- 				["rust-analyzer"] = {
+		-- 					imports = {
+		-- 						granularity = {
+		-- 							group = "module",
+		-- 						},
+		-- 						prefix = "self",
+		-- 					},
+		-- 					cargo = {
+		-- 						buildScripts = {
+		-- 							enable = true,
+		-- 						},
+		-- 					},
+		-- 					procMacro = {
+		-- 						enable = true,
+		-- 					},
+		-- 				},
+		-- 			},
+		-- 		})
+		-- 	end,
+		-- 	["ts_ls"] = function()
+		-- 		lspconfig["ts_ls"].setup({
+		-- 			capabilities = capabilities,
+		-- 			init_options = {
+		-- 				preferences = {
+		-- 					disableSuggestions = true,
+		-- 				},
+		-- 			},
+		-- 			on_attach = function(client, bufnr)
+		-- 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+		-- 			end,
+		-- 			settings = {
+		-- 				javascript = {
+		-- 					inlayHints = {
+		-- 						includeInlayEnumMemberValueHints = true,
+		-- 						includeInlayFunctionLikeReturnTypeHints = true,
+		-- 						includeInlayFunctionParameterTypeHints = true,
+		-- 						includeInlayParameterNameHints = "all",
+		-- 						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+		-- 						includeInlayPropertyDeclarationTypeHints = true,
+		-- 						includeInlayVariableTypeHints = true,
+		-- 					},
+		-- 				},
+		-- 				typescript = {
+		-- 					inlayHints = {
+		-- 						includeInlayEnumMemberValueHints = true,
+		-- 						includeInlayFunctionLikeReturnTypeHints = true,
+		-- 						includeInlayFunctionParameterTypeHints = true,
+		-- 						includeInlayParameterNameHints = "all",
+		-- 						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+		-- 						includeInlayPropertyDeclarationTypeHints = true,
+		-- 						includeInlayVariableTypeHints = true,
+		-- 					},
+		-- 				},
+		-- 			},
+		-- 		})
+		-- 	end,
+		-- 	["svelte"] = function()
+		-- 		lspconfig["svelte"].setup({
+		-- 			capabilities = capabilities,
+		-- 			on_attach = function(client, bufnr)
+		-- 				vim.api.nvim_create_autocmd("BufWritePost", {
+		-- 					pattern = { "*.js", "*.ts" },
+		-- 					callback = function(ctx)
+		-- 						client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+		-- 					end,
+		-- 				})
+		-- 			end,
+		-- 		})
+		-- 	end,
+		-- 	["graphql"] = function()
+		-- 		lspconfig["graphql"].setup({
+		-- 			capabilities = capabilities,
+		-- 			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+		-- 		})
+		-- 	end,
+		-- 	["emmet_ls"] = function()
+		-- 		lspconfig["emmet_ls"].setup({
+		-- 			capabilities = capabilities,
+		-- 			filetypes = {
+		-- 				"html",
+		-- 				"typescriptreact",
+		-- 				"javascriptreact",
+		-- 				"css",
+		-- 				"sass",
+		-- 				"scss",
+		-- 				"less",
+		-- 				"svelte",
+		-- 			},
+		-- 		})
+		-- 	end,
+		-- 	["lua_ls"] = function()
+		-- 		lspconfig["lua_ls"].setup({
+		-- 			capabilities = capabilities,
+		-- 			settings = {
+		-- 				Lua = {
+		-- 					diagnostics = {
+		-- 						globals = { "vim" },
+		-- 					},
+		-- 					completion = {
+		-- 						callSnippet = "Replace",
+		-- 					},
+		-- 				},
+		-- 			},
+		-- 		})
+		-- 	end,
+		-- })
 	end,
 }
