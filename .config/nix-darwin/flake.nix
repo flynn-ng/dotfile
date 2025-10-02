@@ -108,6 +108,7 @@
             "discord"
             "sf-symbols"
             "messenger"
+            "microsoft-teams"
           ];
           taps = [
             {
