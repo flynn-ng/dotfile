@@ -103,7 +103,6 @@
             "stremio"
             "ghostty"
             "raycast"
-            "appcleaner"
             "streamlabs"
             "discord"
             "sf-symbols"
@@ -147,7 +146,11 @@
           remapCapsLockToEscape = true;
         };
 
-        security.pam.services.sudo_local.touchIdAuth = true;
+        security.pam.services.sudo_local = {
+          enable = true;
+          touchIdAuth = true;
+          reattach = true;
+        };
 
         # Necessary for using flakes on this system.
         nix.settings.experimental-features = "nix-command flakes";
@@ -201,6 +204,6 @@
       };
 
       # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."Willian".pkgs;
+      # darwinPackages = self.darwinConfigurations."Willian".pkgs;
     };
 }
