@@ -1,5 +1,6 @@
 return {
 	"nvim-tree/nvim-tree.lua",
+	lazy = false,
 	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		local nvimtree = require("nvim-tree")
@@ -19,6 +20,9 @@ return {
 			},
 			disable_netrw = true,
 			hijack_cursor = true,
+			hijack_directories = {
+				enable = false,
+			},
 			sync_root_with_cwd = true,
 			select_prompts = true,
 			update_focused_file = {
@@ -27,7 +31,7 @@ return {
 			},
 			view = {
 				centralize_selection = true,
-				cursorline = false,
+				cursorline = true,
 				-- relativenumber = true,
 				-- signcolumn = "no",
 				preserve_window_proportions = true,

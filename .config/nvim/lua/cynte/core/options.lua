@@ -20,7 +20,7 @@ opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 
-opt.wrap = true
+opt.wrap = false
 
 opt.scrolloff = 8
 
