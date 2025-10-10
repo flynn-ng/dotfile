@@ -31,7 +31,6 @@ return {
 				"lua_ls",
 				"golangci_lint_ls",
 				"gopls",
-				"nil_ls",
 				"rust_analyzer",
 				"terraformls",
 				"tflint",
