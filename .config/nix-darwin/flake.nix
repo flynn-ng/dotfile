@@ -52,28 +52,29 @@
           mkalias
           postgresql
           appcleaner
-          openvpn
-          yazi
+          # openvpn
+          # yazi
           ffmpeg
           poppler
           go
           (rust-bin.stable.latest.default)
           statix
           pkg-config
-          openssl
-          ngrok
+          # openssl
+          # ngrok
           luajit
           imagemagick
 
-          python312
-          python312Packages.pip
-          uv
-          ruby
+          # python312
+          # python312Packages.pip
+          # uv
+
+          # ruby
 
           unrar
-          nginx
           rar
-          tesseract
+          # nginx
+          # tesseract
           gh
 
           nil
@@ -89,12 +90,10 @@
             "hashicorp/tap/terraform"
             "cloudflared"
             "mkcert"
-            "jupyterlab"
             "pngpaste"
-            "doctl"
           ];
           casks = [
-            "postman"
+            # "postman"
             "podman-desktop"
             "the-unarchiver"
             "arc"
@@ -105,11 +104,12 @@
             "stremio"
             "ghostty"
             "raycast"
-            "streamlabs"
             "discord"
             "sf-symbols"
             "messenger"
             "microsoft-teams"
+            "yt-music"
+            "zen"
           ];
           taps = [
             {
