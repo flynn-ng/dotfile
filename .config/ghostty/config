@@ -1,7 +1,7 @@
 font-family = "FiraCode Nerd Font"
 font-size = 15
-background-opacity = 0.3
-background-blur = true 
+background-opacity = 0.7
+background-blur = false 
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
