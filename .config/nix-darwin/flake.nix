@@ -12,21 +12,21 @@
       };
     };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-      };
-    };
+    # rust-overlay = {
+    #   url = "github:oxalica/rust-overlay";
+    #   inputs = {
+    #     nixpkgs = {
+    #       follows = "nixpkgs";
+    #     };
+    #   };
+    # };
   };
 
-  outputs = { nixpkgs, self, nix-darwin, nix-homebrew, rust-overlay }:
+  outputs = { nixpkgs, self, nix-darwin, nix-homebrew }:
     let
 
       configuration = { pkgs, config, ... }: {
-        nixpkgs.overlays = [ rust-overlay.overlays.default ];
+        # nixpkgs.overlays = [ rust-overlay.overlays.default ];
 
         nixpkgs.config.allowUnfree = true;
 
@@ -45,24 +45,24 @@
           bat
           tlrc
 
-          deno
-          bun
-          pnpm
+          # deno
+          # bun
+          # pnpm
 
           mkalias
-          postgresql
+          # postgresql
           appcleaner
           # openvpn
           # yazi
           ffmpeg
           poppler
           go
-          (rust-bin.stable.latest.default)
+          # (rust-bin.stable.latest.default)
           statix
           pkg-config
           # openssl
           # ngrok
-          luajit
+          # luajit
           imagemagick
 
           # python312
@@ -75,7 +75,7 @@
           rar
           # nginx
           # tesseract
-          gh
+          # gh
 
           nil
 
