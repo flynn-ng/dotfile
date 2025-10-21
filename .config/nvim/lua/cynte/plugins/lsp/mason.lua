@@ -36,6 +36,7 @@ return {
 				"tflint",
 				"biome",
 				"pyright",
+				"postgres_lsp",
 			},
 			automatic_installation = true,
 		})
