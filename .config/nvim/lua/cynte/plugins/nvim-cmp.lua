@@ -14,6 +14,7 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
+		"kristijanhusak/vim-dadbod-completion",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -50,10 +51,11 @@ return {
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),
-			cmp.setup.filetype("sql", {
-				sources = cmp.config.sources({
+			cmp.setup.filetype({ "sql" }, {
+				sources = {
 					{ name = "vim-dadbod-completion" },
-				}),
+					{ name = "buffer" },
+				},
 			}),
 		})
 	end,

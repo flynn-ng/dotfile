@@ -17,6 +17,7 @@ return {
 				lua = { "stylua" },
 				nix = { "nixpkgs_fmt" },
 				python = { "isort", "black" },
+				sql = { "sqlfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

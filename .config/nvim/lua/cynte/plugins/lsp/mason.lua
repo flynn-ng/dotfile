@@ -36,7 +36,7 @@ return {
 				"tflint",
 				"biome",
 				"pyright",
-				"postgres_lsp",
+				"sqlls",
 			},
 			automatic_installation = true,
 		})
@@ -52,6 +52,7 @@ return {
 				"isort",
 				"black",
 				"ruff",
+				"sqlfmt",
 			},
 			automatic_installation = true,
 		})
