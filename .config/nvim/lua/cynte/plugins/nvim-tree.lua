@@ -105,7 +105,7 @@ return {
 
 		vim.cmd("highlight NvimTreeNormal guibg=none")
 		vim.cmd("highlight NvimTreeNormalFloat guibg=none")
-		vim.cmd("highlight! link NvimTreeNormalFloatBorder TelescopeBorder")
+		-- vim.cmd("highlight! link NvimTreeNormalFloatBorder TelescopeBorder")
 
 		local keymap = vim.keymap
 
