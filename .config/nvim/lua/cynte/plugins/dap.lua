@@ -152,16 +152,17 @@ return {
 			local dap = require("dap")
 			local dapui = require("dapui")
 
-			require("mason").setup()
-			require("mason-nvim-dap").setup({
-				automatic_installation = true,
-				ensure_installed = { "node-debug2-adapter" },
-			})
+      local mason_registry = require("mason-registry")
+      local js_debug_path = mason_registry.get_package("js-debug-adapter"):get_install_path()
 
-			dap.adapters.node2 = {
-				type = "executable",
-				command = "node",
-				args = { vim.fn.stdpath("data") .. "/mason/packages/node-debug2-adapter/out/src/nodeDebug.js" },
+			dap.adapters["pwa-node"]= {
+				type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = {js_debug_path .. "/js-debug/src/dapDebugServer.js", "${port}"},
+        }
 			}
 
 			dap.configurations.typescript = {

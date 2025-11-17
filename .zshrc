@@ -13,10 +13,10 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
+# zinit ice as"command" from"gh-r" \
+#           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+#           atpull"%atclone" src"init.zsh"
+# zinit light starship/starship
 
 autoload -U compinit && compinit
 
@@ -49,6 +49,8 @@ zstyle ':fzf-tab:*' popup-min-size 80 12
 if command -v ngrok &>/dev/null; then
     eval "$(ngrok completion)"
   fi
+
+eval "$(starship init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -89,4 +91,4 @@ eval "$(zoxide init --cmd cd zsh)"
 # bun completions
 [ -s "/Users/cynte/.bun/_bun" ] && source "/Users/cynte/.bun/_bun"
 # SECRET KEY
-source ~/.secrets.sh
+# source ~/.secrets.sh
