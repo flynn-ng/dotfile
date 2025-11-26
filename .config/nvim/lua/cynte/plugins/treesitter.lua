@@ -44,6 +44,7 @@ return {
 				"regex",
 				"python",
 				"nix",
+				"yaml",
 			},
 			incremental_selection = {
 				enable = true,

@@ -7,7 +7,7 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				javascript = { "prettier" },
-				typescript = { "prettier" },
+				typescript = { "prettier", "eslint_d" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
 				html = { "prettier" },
@@ -17,12 +17,13 @@ return {
 				lua = { "stylua" },
 				nix = { "nixpkgs_fmt" },
 				python = { "isort", "black" },
-				sql = { "sqlfmt" },
+				sql = { "sql_formatter" },
+				mysql = { "sql_formatter" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 2000,
+				timeout_ms = 500,
 			},
 		})
 

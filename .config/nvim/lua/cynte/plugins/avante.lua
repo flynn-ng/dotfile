@@ -4,31 +4,31 @@ return {
 	lazy = false,
 	version = false,
 	opts = {
-		system_prompt = function()
-			local hub = require("mcphub").get_hub_instance()
-			return hub and hub:get_active_servers_prompt() or ""
-		end,
+		-- system_prompt = function()
+		-- 	local hub = require("mcphub").get_hub_instance()
+		-- 	return hub and hub:get_active_servers_prompt() or ""
+		-- end,
 		-- Using function prevents requiring mcphub before it's loaded
-		custom_tools = function()
-			return {
-				require("mcphub.extensions.avante").mcp_tool(),
-			}
-		end,
+		-- custom_tools = function()
+		-- 	return {
+		-- 		require("mcphub.extensions.avante").mcp_tool(),
+		-- 	}
+		-- end,
 		context_window = 2048,
 		instructions_file = "avante.md",
-		-- provider = "gemini",
-		provider = "groq",
+		provider = "gemini",
+		-- provider = "groq",
 		providers = {
-			groq = {
-				__inherited_from = "openai",
-				api_key_name = "GROQ_API_KEY",
-				endpoint = "https://api.groq.com/openai/v1",
-				model = "llama-3.1-8b-instant",
-				max_tokens = 512,
-				extra_request_body = {
-					max_completion_tokens = 512,
-				},
-			},
+			-- groq = {
+			-- 	__inherited_from = "openai",
+			-- 	api_key_name = "GROQ_API_KEY",
+			-- 	endpoint = "https://api.groq.com/openai/v1",
+			-- 	model = "llama-3.1-8b-instant",
+			-- 	max_tokens = 512,
+			-- 	extra_request_body = {
+			-- 		max_completion_tokens = 512,
+			-- 	},
+			-- },
 			gemini = {
 				model = "gemini-2.5-flash-lite",
 				timeout = 30000,

@@ -111,6 +111,42 @@ return {
 			},
 		}
 
+		vim.lsp.config["ts_ls"] = {
+			capabilities = capabilities,
+			init_options = {
+				preferences = {
+					disableSuggestions = true,
+				},
+			},
+			on_attach = function(client, bufnr)
+				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+			end,
+			settings = {
+				javascript = {
+					inlayHints = {
+						includeInlayEnumMemberValueHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayParameterNameHints = "all",
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayVariableTypeHints = true,
+					},
+				},
+				typescript = {
+					inlayHints = {
+						includeInlayEnumMemberValueHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayParameterNameHints = "all",
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayVariableTypeHints = true,
+					},
+				},
+			},
+		}
+
 		-- Mason-LSPconfig handlers
 		-- mason_lspconfig.setup_handlers({
 		-- 	-- Default handler

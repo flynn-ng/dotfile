@@ -47,8 +47,8 @@ zstyle ':fzf-tab:*' popup-min-size 80 12
 
 # ngrok completion
 if command -v ngrok &>/dev/null; then
-    eval "$(ngrok completion)"
-  fi
+  eval "$(ngrok completion)"
+fi
 
 eval "$(starship init zsh)"
 
@@ -88,7 +88,24 @@ alias ls="eza --color=always --git --icons=always -1"
 
 eval "$(zoxide init --cmd cd zsh)"
 
-# bun completions
-[ -s "/Users/cynte/.bun/_bun" ] && source "/Users/cynte/.bun/_bun"
+if command -v docker &> /dev/null; then
+  source <(docker completion zsh)
+fi
+
+if command -v kubectl &> /dev/null; then
+  source <(kubectl completion zsh)
+fi
+
+if command -v minikube &> /dev/null; then 
+  source <(minikube completion zsh)
+fi
+
+if command -v nats &> /dev/null; then
+  source <(nats --completion-script-zsh)
+fi
+
 # SECRET KEY
-# source ~/.secrets.sh
+source ~/.secrets.sh
+
+# direnv
+eval "$(direnv hook zsh)"

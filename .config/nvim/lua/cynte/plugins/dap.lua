@@ -152,25 +152,24 @@ return {
 			local dap = require("dap")
 			local dapui = require("dapui")
 
-      local mason_registry = require("mason-registry")
-      local js_debug_path = mason_registry.get_package("js-debug-adapter"):get_install_path()
+			local js_debug_path = require("mason.settings").current.install_root_dir .. "/packages/js-debug-adapter"
 
-			dap.adapters["pwa-node"]= {
+			dap.adapters["pwa-node"] = {
 				type = "server",
-        host = "localhost",
-        port = "${port}",
-        executable = {
-          command = "node",
-          args = {js_debug_path .. "/js-debug/src/dapDebugServer.js", "${port}"},
-        }
+				host = "localhost",
+				port = "${port}",
+				executable = {
+					command = "node",
+					args = { js_debug_path .. "/js-debug/src/dapDebugServer.js", "${port}" },
+				},
 			}
 
 			dap.configurations.typescript = {
 				{
 					name = "Launch NestJS",
-					type = "node2",
+					type = "pwa-node",
 					request = "launch",
-					program = "${workspaceFolder}/node_modules/.bin/nest",
+					program = "${workspaceFolder}/node_modules/@nestjs/cli/bin/nest.js",
 					args = { "start", "--debug", "--watch" },
 					cwd = "${workspaceFolder}",
 					runtimeExecutable = "node",

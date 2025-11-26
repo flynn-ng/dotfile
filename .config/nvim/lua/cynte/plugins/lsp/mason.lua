@@ -29,6 +29,9 @@ return {
 			ensure_installed = {
 				"ts_ls",
 				"lua_ls",
+				"docker_compose_language_service",
+				"dockerls",
+				"sqlls",
 				-- "golangci_lint_ls",
 				-- "gopls",
 				-- "rust_analyzer",
@@ -43,12 +46,14 @@ return {
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				-- "golangci-lint",
 				"prettier",
-				-- "stylua",
+				"sqruff",
+				"sql-formatter",
 				"eslint_d",
-				-- "nixpkgs-fmt",
+				"nixpkgs-fmt",
 				"js-debug-adapter",
+				-- "golangci-lint",
+				-- "stylua",
 				-- "isort",
 				-- "black",
 				-- "ruff",
