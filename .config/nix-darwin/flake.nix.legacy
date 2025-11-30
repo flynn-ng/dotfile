@@ -12,21 +12,12 @@
       };
     };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    # rust-overlay = {
-    #   url = "github:oxalica/rust-overlay";
-    #   inputs = {
-    #     nixpkgs = {
-    #       follows = "nixpkgs";
-    #     };
-    #   };
-    # };
   };
 
   outputs = { nixpkgs, self, nix-darwin, nix-homebrew }:
     let
 
       configuration = { pkgs, config, ... }: {
-        # nixpkgs.overlays = [ rust-overlay.overlays.default ];
 
         nixpkgs.config.allowUnfree = true;
 
@@ -43,43 +34,19 @@
           jq
           fd
           bat
+          direnv
           tlrc
-
-          # deno
-          # bun
-          # pnpm
-
           mkalias
-          # postgresql
           appcleaner
-          # openvpn
-          # yazi
           ffmpeg
           poppler
           go
-          # (rust-bin.stable.latest.default)
           statix
           pkg-config
-          # openssl
-          # ngrok
-          # luajit
           imagemagick
-
-          # python312
-          # python312Packages.pip
-          # uv
-
-          # ruby
-
           unrar
           rar
-          # nginx
-          # tesseract
-          # gh
-
           nil
-
-
         ];
 
         homebrew = {
@@ -93,11 +60,9 @@
             "pngpaste"
           ];
           casks = [
-            # "postman"
             "podman-desktop"
             "the-unarchiver"
             "arc"
-            "thebrowsercompany-dia"
             "keycastr"
             "dbeaver-community"
             "steam"
@@ -106,10 +71,7 @@
             "raycast"
             "discord"
             "sf-symbols"
-            "messenger"
             "microsoft-teams"
-            "yt-music"
-            "zen"
           ];
           taps = [
             {

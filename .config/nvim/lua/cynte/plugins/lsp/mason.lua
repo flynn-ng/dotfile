@@ -48,7 +48,7 @@ return {
 			ensure_installed = {
 				"prettier",
 				"sqruff",
-				"sql-formatter",
+				-- "sql-formatter",
 				"eslint_d",
 				"nixpkgs-fmt",
 				"js-debug-adapter",
