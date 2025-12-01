@@ -28,8 +28,6 @@
         hosts/shared/fonts.nix
 
         hosts/shared/neovim.nix
-
-        hosts/shared/programs.nix
       ];
     in
     {
