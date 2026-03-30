@@ -15,8 +15,6 @@ keymap.set("n", "<leader>tl", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<leader>th", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>td", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
-keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
-
 keymap.set("n", "Q", "<Esc>")
 keymap.set("n", "J", "mzJ`z")
 keymap.set("n", "<C-d>", "<C-d>zz")

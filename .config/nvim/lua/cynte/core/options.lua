@@ -4,6 +4,7 @@ vim.cmd("let g:loaded_ruby_provider = 0")
 -- Set transparency for floating windows
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "none" })
 -- vim.cmd("highlight! link NoicePopupBorder TelescopeBorder")
 -- vim.cmd("highlight! link NoicePopupmenuBorder TelescopeBorder")
 -- vim.cmd("highlight! link NoiceSplitBorder TelescopeBorder")
@@ -20,9 +21,9 @@ opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 
-opt.wrap = false
+opt.wrap = true
 
-opt.scrolloff = 8
+opt.scrolloff = 16
 
 opt.hlsearch = false
 opt.incsearch = true
@@ -46,3 +47,15 @@ opt.splitbelow = true
 opt.laststatus = 3
 
 opt.swapfile = false
+opt.foldmethod = "indent"
+-- opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 9000
+
+opt.undofile = true
+-- vim.api.nvim_create_autocmd("VimEnter", {
+-- 	callback = function()
+-- 		vim.schedule(function()
+-- 			vim.opt.scrolloff = 32
+-- 		end)
+-- 	end,
+-- })

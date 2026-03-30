@@ -45,16 +45,8 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':fzf-tab:*' popup-min-size 80 12
 
 
-# ngrok completion
-if command -v ngrok &>/dev/null; then
-  eval "$(ngrok completion)"
-fi
 
 eval "$(starship init zsh)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias v='nvim'
 alias vim='nvim'
@@ -109,3 +101,17 @@ source ~/.secrets.sh
 
 # direnv
 eval "$(direnv hook zsh)"
+
+export CLAUDE_CODE_USE_VERTEX=1
+export CLOUD_ML_REGION=global
+export ANTHROPIC_VERTEX_PROJECT_ID="prj-vnm-prod-be-sg-1"
+
+export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-6'
+export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-sonnet-4-6'
+export ANTHROPIC_DEFAULT_HAIKU_MODEL='claude-haiku-4-5@20251001'
+
+LAST_RUN_FILE="$HOME/.gcloud_adc_last_login"
+if [[ ! -f "$LAST_RUN_FILE" || "$(date +%F)" != "$(cat $LAST_RUN_FILE)" ]]; then
+  gcloud auth application-default login
+  date +%F > "$LAST_RUN_FILE"
+fi

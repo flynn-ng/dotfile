@@ -98,12 +98,12 @@ return {
 		scratch = {
 			enabled = true,
 		},
-		-- scroll = {
-		-- 	enabled = true,
-		-- 	animate = {
-		-- 		duration = { step = 15, total = 100 },
-		-- 	},
-		-- },
+		scroll = {
+			enabled = false,
+			animate = {
+				duration = { step = 15, total = 100 },
+			},
+		},
 		statuscolumn = {
 			enabled = true,
 		},
@@ -111,6 +111,9 @@ return {
 			enabled = true,
 		},
 		words = {
+			enabled = true,
+		},
+		profiler = {
 			enabled = true,
 		},
 	},
@@ -345,6 +348,13 @@ return {
 				Snacks.picker.lsp_workspace_symbols()
 			end,
 			desc = "LSP Workspace Symbols",
+		},
+		{
+			"<leader>ps",
+			function()
+				Snacks.profiler.scratch()
+			end,
+			desc = "Profiler Scratch Bufer",
 		},
 	},
 }

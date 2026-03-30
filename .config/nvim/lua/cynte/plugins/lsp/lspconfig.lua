@@ -41,7 +41,6 @@ return {
 		})
 
 		-- Import mason_lspconfig plugin
-		local mason_lspconfig = require("mason-lspconfig")
 
 		-- Import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -118,9 +117,9 @@ return {
 					disableSuggestions = true,
 				},
 			},
-			on_attach = function(client, bufnr)
-				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-			end,
+			-- on_attach = function(client, bufnr)
+			-- 	vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+			-- end,
 			settings = {
 				javascript = {
 					inlayHints = {
@@ -146,6 +145,38 @@ return {
 				},
 			},
 		}
+
+		vim.lsp.config.sqls = {
+			capabilities = capabilities,
+			init_options = {
+				preferences = {
+					disableSuggestions = true,
+				},
+			},
+			settings = {
+				sqls = {
+					lint = {
+						enable = false,
+						serverity = "error",
+					},
+				},
+			},
+		}
+
+		vim.lsp.config.rust_analyzer = {
+			capabilities = capabilities,
+			settings = {
+				["rust-analyzer"] = {
+					cargo = {
+						allFeatures = true,
+					},
+					procMacro = {
+						enable = true,
+					},
+				},
+			},
+		}
+		vim.lsp.enable("rust_analyzer")
 
 		-- Mason-LSPconfig handlers
 		-- mason_lspconfig.setup_handlers({
