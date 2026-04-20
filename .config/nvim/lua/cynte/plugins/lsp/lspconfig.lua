@@ -110,7 +110,7 @@ return {
 			},
 		}
 
-		vim.lsp.config["ts_ls"] = {
+		vim.lsp.config["tsgo"] = {
 			capabilities = capabilities,
 			init_options = {
 				preferences = {

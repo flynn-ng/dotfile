@@ -28,6 +28,7 @@ return {
 			-- list of servers for mason to install
 			ensure_installed = {
 				"ts_ls",
+				"tsgo",
 				"lua_ls",
 				"docker_compose_language_service",
 				"dockerls",

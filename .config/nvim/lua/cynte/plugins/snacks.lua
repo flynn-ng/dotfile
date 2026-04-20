@@ -70,6 +70,11 @@ return {
 				end,
 			},
 		},
+		explorer = {
+			enabled = true,
+			replace_netrw = true,
+			trash = false,
+		},
 		indent = {
 			indent = {
 				char = "┊",
@@ -88,6 +93,19 @@ return {
 		},
 		picker = {
 			enabled = true,
+			layout = { preset = "ivy" },
+			sources = {
+				explorer = {
+					layout = { preset = "dropdown" },
+					auto_close = true,
+					follow_file = true,
+					hidden = true,
+					ignored = true,
+				},
+				lsp_references = {
+					layout = { preset = "left" },
+				},
+			},
 		},
 		quickfile = {
 			enabled = true,
@@ -355,6 +373,13 @@ return {
 				Snacks.profiler.scratch()
 			end,
 			desc = "Profiler Scratch Bufer",
+		},
+		{
+			"<leader>e",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "Find Files in Current Directory",
 		},
 	},
 }
