@@ -1,0 +1,12 @@
+{
+  "plugins": {
+    "cyberdream.nvim": {
+      "rev": "39f69ebcd8de69c741bb7a65353aa37dd0680ad1",
+      "src": "https://github.com/scottmckendry/cyberdream.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
+      "src": "https://github.com/folke/snacks.nvim"
+    }
+  }
+}

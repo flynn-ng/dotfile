@@ -88,7 +88,7 @@ if command -v kubectl &> /dev/null; then
   source <(kubectl completion zsh)
 fi
 
-if command -v minikube &> /dev/null; then 
+if command -v minikube &> /dev/null; then
   source <(minikube completion zsh)
 fi
 
@@ -102,13 +102,13 @@ source ~/.secrets.sh
 # direnv
 eval "$(direnv hook zsh)"
 
-export CLAUDE_CODE_USE_VERTEX=1
-export CLOUD_ML_REGION=global
-export ANTHROPIC_VERTEX_PROJECT_ID="prj-vnm-prod-be-sg-1"
-
-export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-7'
-export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-sonnet-4-6'
-export ANTHROPIC_DEFAULT_HAIKU_MODEL='claude-haiku-4-5@20251001'
+# export CLAUDE_CODE_USE_VERTEX=1
+# export CLOUD_ML_REGION=global
+# export ANTHROPIC_VERTEX_PROJECT_ID="prj-vnm-prod-be-sg-1"
+#
+# export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-7'
+# export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-sonnet-4-6'
+# export ANTHROPIC_DEFAULT_HAIKU_MODEL='claude-haiku-4-5@20251001'
 
 export CLAUDE_CODE_NO_FLICKER=1
 
