@@ -2,7 +2,6 @@
   environment.systemPackages = with pkgs; [
     git
     curl
-    tmux
     neovim
     fzf
     ripgrep
@@ -20,5 +19,9 @@
 
     podman
     podman-compose
+
+    claude-code
+
+    bitwarden-cli
   ];
 }

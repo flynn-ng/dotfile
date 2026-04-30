@@ -67,17 +67,17 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 eval "$(fzf --zsh)"
 
 
-export FZF_CRTL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tre --color=always {} | head -200'"
 
 _fzf_comprun() {
-  local comand=$1
+  local command=$1
   shift
 
   case "$command" in
     export|unset) fzf --preview "eval 'echo \$' {}" "$@" ;;
     ssh)          fzf --preview 'dig {}' "$@" ;;
-    *)            fzf --preview "--preview 'bat -n --color=always --line-range :500 {}'" "$@" ;;
+    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
 
@@ -105,7 +105,28 @@ if command -v nats &> /dev/null; then
 fi
 
 # SECRET KEY
-source ~/.secrets.sh
+[[ -f ~/.secrets.sh ]] && source ~/.secrets.sh
 
-# direnv
-eval "$(direnv hook zsh)"
+
+# export CLAUDE_CODE_USE_VERTEX=1
+# export CLOUD_ML_REGION=global
+# export ANTHROPIC_VERTEX_PROJECT_ID="prj-vnm-prod-be-sg-1"
+#
+# export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-7'
+# export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-sonnet-4-6'
+# export ANTHROPIC_DEFAULT_HAIKU_MODEL='claude-haiku-4-5@20251001'
+
+export CLAUDE_CODE_NO_FLICKER=1
+
+if command -v gcloud &> /dev/null; then
+  LAST_RUN_FILE="$HOME/.gcloud_adc_last_login"
+  if [[ ! -f "$LAST_RUN_FILE" || "$(date +%F)" != "$(cat $LAST_RUN_FILE)" ]]; then
+    gcloud auth application-default login
+    date +%F > "$LAST_RUN_FILE"
+  fi
+fi
+
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+

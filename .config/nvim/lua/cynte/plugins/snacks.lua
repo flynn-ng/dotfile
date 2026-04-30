@@ -93,6 +93,8 @@ return {
       enabled = true,
       sources = {
         explorer = {
+          ignored = true,
+          hidden = true,
           layout = { preset = "vertical", preview = false, cycle = false },
           auto_close = true,
           win = {

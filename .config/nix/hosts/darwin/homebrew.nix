@@ -9,14 +9,13 @@
       "the-unarchiver"
       "arc"
       "keycastr"
-      "dbeaver-community"
+      "cloudflare-warp"
       "steam"
       "stremio"
       "ghostty"
       "raycast"
       "discord"
       "sf-symbols"
-      "microsoft-teams"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
