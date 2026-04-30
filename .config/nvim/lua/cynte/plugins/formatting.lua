@@ -14,11 +14,7 @@ return {
 				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
-				lua = { "stylua" },
 				nix = { "nixpkgs_fmt" },
-				python = { "isort", "black" },
-				sql = { "sql_formatter" },
-				mysql = { "sql_formatter" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

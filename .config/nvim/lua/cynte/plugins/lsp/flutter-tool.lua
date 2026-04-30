@@ -3,7 +3,7 @@ return {
 	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"stevearc/dressing.nvim", -- optional for vim.ui.select
+		-- dressing.nvim removed - using snacks.input instead
 	},
 	config = true,
 }
