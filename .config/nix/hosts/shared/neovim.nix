@@ -6,7 +6,7 @@
     docker-language-server
 
     # Formatters
-    prettier
+    prettierd
     nixpkgs-fmt
 
     # Linters
