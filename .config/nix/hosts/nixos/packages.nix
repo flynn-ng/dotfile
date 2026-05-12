@@ -1,5 +1,36 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    google-cloud-sdk
+    gnumake
+    gcc
+    unzip
+    libtool
+    lsof
+    delta
+    zsh
+    tmux
+
+    cargo
+    rustc
+    jdk21_headless
+    nodejs_24
+    go
+    python3
+
+    stylua
+    luajitPackages.luarocks
+
+    docker
+    docker-buildx
+    docker-compose
+
+    google-cloud-sdk-gce
+    obsidian
+
+    tree-sitter
+
+    codex
+
+    ssss
+    imagemagick
   ];
 }

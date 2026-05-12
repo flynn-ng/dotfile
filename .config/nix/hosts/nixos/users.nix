@@ -1,7 +1,8 @@
 { pkgs, ... }: {
-  users.users.cynte = {
+  users.users.nixos = {
     isNormalUser = true;
+    description = "WSL user";
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "podman" ];
+    extraGroups = [ "wheel" "docker" ];
   };
 }

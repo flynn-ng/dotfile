@@ -1,6 +1,7 @@
 { ... }: {
   wsl = {
     enable = true;
-    defaultUser = "cynte";
+    defaultUser = "nixos";
+    docker-desktop.enable = true;
   };
 }
