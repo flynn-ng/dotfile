@@ -65,10 +65,13 @@ in
 {
   programs.tmux = {
     enable = true;
-    enableMouse = true;
-    enableVim = true;
 
     extraConfig = ''
+      # Mouse support
+      set -g mouse on
+
+      # Vi mode
+      setw -g mode-keys vi
       # Terminal settings
       set -g default-terminal "screen-256color"
       set -ag terminal-overrides ",$TERM:Tc"
@@ -110,7 +113,7 @@ in
       set -g @powerkit_theme "custom"
       set -g @powerkit_custom_theme_path "${cyberdreamTheme}"
       set -g @powerkit_transparent "true"
-      set -g @powerkit_plugins "git,bitwarden,group(cpu,memory),battery,datetime"
+      set -g @powerkit_plugins "git,bitwarden,battery"
       set -g @powerkit_plugin_group_colors "info-base-darker,window-active-base-darker,ok-base-darker,warning-base-darker,error-base-darker,disabled-base"
       set -g @powerkit_plugin_group_coloring "true"
       set -g @powerkit_separator_style "slant"
