@@ -40,7 +40,7 @@
     hitoolbox.AppleFnUsageType = "Change Input Source";
     NSGlobalDomain.AppleICUForce24HourTime = true;
     NSGlobalDomain.AppleInterfaceStyle = "Dark";
-    NSGlobalDomain.AppleIconAppearanceTheme = "TintedLight";
+    NSGlobalDomain.AppleIconAppearanceTheme = "RegularDark";
     NSGlobalDomain.AppleShowAllExtensions = true;
     NSGlobalDomain.AppleShowAllFiles = true;
     NSGlobalDomain._HIHideMenuBar = true;
