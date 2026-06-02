@@ -10,6 +10,8 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			sql = { "sqruff" },
+			go = { "golangci-lint" },
+			lua = { "luacheck" },
 		}
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
