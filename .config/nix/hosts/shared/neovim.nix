@@ -4,6 +4,10 @@
     lua-language-server
     typescript-language-server
     docker-language-server
+    gopls
+
+    stylua
+    selene
 
     # Formatters
     prettierd

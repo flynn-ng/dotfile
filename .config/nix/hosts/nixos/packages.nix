@@ -16,9 +16,6 @@
     go
     python3
 
-    stylua
-    luajitPackages.luarocks
-
     docker
     docker-buildx
     docker-compose

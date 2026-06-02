@@ -112,6 +112,7 @@ in
       # Powerkit: cyberdream theme
       set -g @powerkit_theme "custom"
       set -g @powerkit_custom_theme_path "${cyberdreamTheme}"
+      set -g @powerkit_theme_selector_key "C-f"
       set -g @powerkit_transparent "true"
       set -g @powerkit_plugins "git,bitwarden,cpu,memory,battery,datetime"
       set -g @powerkit_plugin_group_colors "info-base-darker,window-active-base-darker,ok-base-darker,warning-base-darker,error-base-darker,disabled-base"

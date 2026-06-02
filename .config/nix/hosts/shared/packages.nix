@@ -21,6 +21,7 @@
     podman-compose
 
     claude-code
+    codex
 
     bitwarden-cli
   ];

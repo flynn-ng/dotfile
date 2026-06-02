@@ -147,6 +147,34 @@ return {
 			},
 		}
 
+		-- Go Language Server
+		vim.lsp.config.gopls = {
+			cmd = { "gopls" },
+			root_markers = { "go.work", "go.mod", ".git" },
+			capabilities = capabilities,
+			on_attach = function(client, bufnr)
+				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+			end,
+			settings = {
+				gopls = {
+					analyses = {
+						unusedparams = true,
+					},
+					staticcheck = true,
+					gofumpt = true,
+					hints = {
+						assignVariableTypes = true,
+						compositeLiteralFields = true,
+						compositeLiteralTypes = true,
+						constantValues = true,
+						functionTypeParameters = true,
+						parameterNames = true,
+						rangeVariableTypes = true,
+					},
+				},
+			},
+		}
+
 		-- Docker Language Server
 		vim.lsp.config.dockerls = {
 			cmd = { "docker-language-server", "--stdio" },
@@ -173,6 +201,13 @@ return {
 			pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 			callback = function(args)
 				vim.lsp.enable("ts_ls")
+			end,
+		})
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "go",
+			callback = function(args)
+				vim.lsp.enable("gopls")
 			end,
 		})
 
